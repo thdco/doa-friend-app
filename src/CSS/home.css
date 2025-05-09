@@ -89,6 +89,10 @@ body {
   transition: 0.3s ease;
 }
 
+.big-button:hover .icon-toggle {
+  content: url('/src/PNG/light_siren.PNG');
+}
+
 .btn-label {
   font-size: 14px;
   color: white;

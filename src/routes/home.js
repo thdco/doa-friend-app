@@ -1,4 +1,4 @@
-import './home.css';
+import '../CSS/home.css';
 import puppy from '../PNG/puppy.PNG';
 import siren from '../PNG/siren.PNG';
 import lightSiren from '../PNG/light_siren.PNG';
