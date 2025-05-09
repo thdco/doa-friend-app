@@ -1,0 +1,51 @@
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;       /* 로그인 페이지에만 적용 */
+  background-color: #f0f2f5;
+  overflow: hidden;
+}
+
+.login-box {
+  max-height: 90vh;      /* ✅ 100vh보다 작게 */
+  overflow-y: auto;      /* ✅ 내용 많으면 내부에서 스크롤 */
+  background: white;
+  padding: 30px;
+  width: 300px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+
+
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.btn_login {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+}

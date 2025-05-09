@@ -44,31 +44,34 @@ const Login = () => {
   };
 
   return (
-    <div className="login-box">
-      <h2>로그인</h2>
-      <input
-        type="text"
-        placeholder="아이디"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="비밀번호"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button className="btn_login" onClick={handleLogin}>
-        로그인
-      </button>
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <h5>계정이 없으신가요?</h5>
-        <p style={{ marginLeft: '6px' }}>
-          <a href="/signup">회원가입하러가기</a>
-        </p>
+      <div className="login-wrapper">
+        <div className="login-box">
+          <h2>로그인</h2>
+          <input
+            type="text"
+            placeholder="아이디"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="비밀번호"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button className="btn_login" onClick={handleLogin}>
+            로그인
+          </button>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <h5>계정이 없으신가요?</h5>
+            <p style={{ marginLeft: '6px' }}>
+              <a href="/signup">회원가입하러가기</a>
+            </p>
+          </div>
+          <div className="error">{errorMsg}</div>
       </div>
-      <div className="error">{errorMsg}</div>
     </div>
+    
   );
 };
 

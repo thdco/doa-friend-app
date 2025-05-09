@@ -2,7 +2,6 @@ body {
   margin: 0;
   font-family: 'Gmarket Sans', sans-serif;
   background-color: #f0f0f0;
-  min-height: 150vh;
 }
 
 .header {
@@ -197,4 +196,109 @@ body {
 
 body {
   font-family: 'Gmarket Sans', sans-serif;
+}
+
+@media (max-width: 430px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    gap: 10px;
+    flex-wrap: wrap;   
+  }
+
+  .big-button {
+    flex-shrink: 0;
+    width: 300px;
+    height: 250px;
+    background-color: #9cd3ff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;     /* ✅ 수직 중앙 정렬 */
+    align-items: center;         /* ✅ 수평 중앙 정렬 */
+    gap: 10px;                   /* ✅ 이미지와 텍스트 사이 간격 */
+    text-align: center;
+    transition: background-color 0.2s;
+  }
+
+
+  .small-button-grid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 144px 144px;
+  gap: 12px;
+  width: 300px;
+}
+
+  .right-side {
+  width: 300px;           /* ✅ big-button과 딱 맞춤 */
+  display: flex;
+  justify-content: center;
+}
+
+
+  .button-square {
+  height: 120px;
+  background-color: #9cd3ff;
+  border: none;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.button-full {
+  grid-column: span 2;
+}
+
+  .header h1 {
+    font-size: 20px;
+  }
+
+  .logo {
+    height: 60px;
+  }
+  .icon-toggle {
+  width: 60%;
+  max-width: 180px;
+  height: auto;
+  object-fit: contain;
+}
+
+
+  .notice-box,
+  .review-section {
+    padding: 0 15px;
+    margin: 20px auto;
+  }
+
+  .review-form input,
+  .review-form textarea {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .review-card h3 {
+    font-size: 15px;
+  }
+
+  .review-card p {
+    font-size: 14px;
+  }
+
+  .btn-label {
+  font-size: 16px;
+  color: white;
+  word-break: keep-all;
+  white-space: nowrap;        /* ✅ 필요 시 줄바꿈 막기 */
+  text-align: center;
+}
+  .logo{
+    margin: 0;
+  }
+
 }

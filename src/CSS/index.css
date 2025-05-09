@@ -1,0 +1,13 @@
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: auto;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;  /* ✨ 이거! */
+}
+
+/* ✨ 모든 요소에 box-sizing */
+* {
+  box-sizing: border-box;
+}

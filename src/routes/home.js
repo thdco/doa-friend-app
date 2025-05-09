@@ -5,11 +5,12 @@ import lightSiren from '../PNG/light_siren.PNG';
 import me from '../PNG/Me.PNG';
 import community from '../PNG/Community.PNG';
 import set from '../PNG/set.PNG';
-
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 function Home() {
   const [isHover, setIsHover] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <div className="App">
@@ -23,6 +24,7 @@ function Home() {
           className="big-button"
           onMouseEnter={() => setIsHover(true)}
           onMouseLeave={() => setIsHover(false)}
+          onClick={() => navigate('/request-help-form')}
         >
           <img
             src={isHover ? lightSiren : siren}
@@ -33,20 +35,20 @@ function Home() {
         </button>
 
         <div className="right-side">
-          <div className="top-row">
-            <button className="button-square">
+          <div className="small-button-grid">
+            <button className="button-square" onClick={() => navigate('/profile')}>
               <img src={me} alt="내정보" className="icon-toggle" />
               <span className="btn-label">내 정보</span>
             </button>
-            <button className="button-square">
+            <button className="button-square" onClick={() => navigate('/request-post-list')}>
               <img src={community} alt="커뮤니티" className="icon-toggle" />
               <span className="btn-label">커뮤니티</span>
             </button>
+            <button className="button-square button-full" onClick={() => navigate('/settings')}>
+              <img src={set} alt="설정" className="icon-toggle" />
+              <span className="btn-label">설정</span>
+            </button>
           </div>
-          <button className="button-square">
-            <img src={set} alt="설정" className="icon-toggle" />
-            <span className="btn-label">설정</span>
-          </button>
         </div>
       </div>
 
@@ -64,10 +66,7 @@ function Home() {
         <div className="reviews">
           <div className="review-card">
             <h3>김도우미</h3>
-            <p>
-              정말 친절하고 도움이 많이 되었어요! 다음에도 꼭 다시 이용하고
-              싶습니다.
-            </p>
+            <p>정말 친절하고 도움이 많이 되었어요! 다음에도 꼭 다시 이용하고 싶습니다.</p>
           </div>
           <div className="review-card">
             <h3>박도우미</h3>
