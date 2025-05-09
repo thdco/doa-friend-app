@@ -1,0 +1,48 @@
+.settings-page {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-left: 8px solid #62d0ff;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Gmarket Sans', sans-serif;
+  }
+  
+  .settings-page h2 {
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  
+  .setting-item {
+    margin-bottom: 20px;
+  }
+  
+  .setting-item label {
+    font-size: 16px;
+    color: #444;
+  }
+  
+  .setting-item button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #9cd3ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .setting-item button:hover {
+    background-color: #578ab4;
+  }
+  
+  .logout-button {
+    background-color: #f44336;
+  }
+  
+  .logout-button:hover {
+    background-color: #d32f2f;
+  }
+  
