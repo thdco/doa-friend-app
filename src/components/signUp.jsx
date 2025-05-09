@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../signUp.css';
 
 const SignUp = () => {
@@ -16,9 +17,20 @@ const SignUp = () => {
   const [errors, setErrors] = useState({});
 
   const emailDomains = [
-    'naver.com', 'gmail.com', 'daum.net', 'hanmail.net', 'hotmail.com',
-    'nate.com', 'yahoo.co.kr', 'empas.com', 'freechal.com', 'lycos.co.kr',
-    'korea.com', 'hanmir.com', 'dreamwiz.com', 'paran.com',
+    'naver.com',
+    'gmail.com',
+    'daum.net',
+    'hanmail.net',
+    'hotmail.com',
+    'nate.com',
+    'yahoo.co.kr',
+    'empas.com',
+    'freechal.com',
+    'lycos.co.kr',
+    'korea.com',
+    'hanmir.com',
+    'dreamwiz.com',
+    'paran.com',
   ];
 
   const handleChange = (e) => {
@@ -31,11 +43,13 @@ const SignUp = () => {
     const newErrors = {};
 
     if (!/^[a-zA-Z0-9-_]{5,20}$/.test(form.id)) {
-      newErrors.id = '5~20자의 영문 소대문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.';
+      newErrors.id =
+        '5~20자의 영문 소대문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.';
     }
 
     if (!/^[a-zA-Z0-9~!@#$%^&*()_-]{10,20}$/.test(form.pw)) {
-      newErrors.pw = '10~20자의 영문 소대문자, 숫자와 특수기호만 사용 가능합니다.';
+      newErrors.pw =
+        '10~20자의 영문 소대문자, 숫자와 특수기호만 사용 가능합니다.';
     }
 
     if (form.pw !== form.pwCheck) {
@@ -62,10 +76,17 @@ const SignUp = () => {
     return Object.keys(newErrors).length === 0;
   };
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (validate()) {
+    console.log('🔥 submit 눌림');
+
+    if (!validate()) {
       alert('회원가입이 완료되었습니다!');
+      navigate('/login');
+    } else {
+      console.log('❌ 유효성 검사 실패');
     }
   };
 
@@ -79,34 +100,83 @@ const SignUp = () => {
           </h1>
         </header>
 
-        <h3 className="list">아이디<span className="required">*</span><span>{errors.id}</span></h3>
+        <h3 className="list">
+          아이디<span className="required">*</span>
+          <span>{errors.id}</span>
+        </h3>
         <input type="text" id="id" value={form.id} onChange={handleChange} />
 
-        <h3 className="list">비밀번호<span className="required">*</span><span>{errors.pw}</span></h3>
-        <input type="password" id="pw" value={form.pw} onChange={handleChange} />
+        <h3 className="list">
+          비밀번호<span className="required">*</span>
+          <span>{errors.pw}</span>
+        </h3>
+        <input
+          type="password"
+          id="pw"
+          value={form.pw}
+          onChange={handleChange}
+        />
 
-        <h3 className="list">비밀번호 재확인<span className="required">*</span><span>{errors.pwCheck}</span></h3>
-        <input type="password" id="pwCheck" value={form.pwCheck} onChange={handleChange} />
+        <h3 className="list">
+          비밀번호 재확인<span className="required">*</span>
+          <span>{errors.pwCheck}</span>
+        </h3>
+        <input
+          type="password"
+          id="pwCheck"
+          value={form.pwCheck}
+          onChange={handleChange}
+        />
 
-        <h3 className="list">성명<span className="required">*</span><span>{errors.name}</span></h3>
-        <input type="text" id="name" value={form.name} onChange={handleChange} />
+        <h3 className="list">
+          성명<span className="required">*</span>
+          <span>{errors.name}</span>
+        </h3>
+        <input
+          type="text"
+          id="name"
+          value={form.name}
+          onChange={handleChange}
+        />
 
-        <h3 className="list">전화번호("-" 제외)<span className="required">*</span><span>{errors.phoneNum}</span></h3>
-        <input type="text" id="phoneNum" value={form.phoneNum} onChange={handleChange} />
+        <h3 className="list">
+          전화번호("-" 제외)<span className="required">*</span>
+          <span>{errors.phoneNum}</span>
+        </h3>
+        <input
+          type="text"
+          id="phoneNum"
+          value={form.phoneNum}
+          onChange={handleChange}
+        />
 
-        <h3 className="list">이메일<span>{errors.email}</span></h3>
+        <h3 className="list">
+          이메일<span>{errors.email}</span>
+        </h3>
         <div className="emailInt">
-          <input type="text" id="email" value={form.email} onChange={handleChange} />
+          <input
+            type="text"
+            id="email"
+            value={form.email}
+            onChange={handleChange}
+          />
           <span>@</span>
-          <select id="emailDomain" onChange={(e) => setForm({ ...form, emailDomain: e.target.value })}>
+          <select
+            id="emailDomain"
+            onChange={(e) => setForm({ ...form, emailDomain: e.target.value })}
+          >
             <option>이메일 선택</option>
             {emailDomains.map((domain) => (
-              <option key={domain} value={domain}>{domain}</option>
+              <option key={domain} value={domain}>
+                {domain}
+              </option>
             ))}
           </select>
         </div>
 
-        <h3 className="list">개인정보 수집/이용동의<span>{errors.consent}</span></h3>
+        <h3 className="list">
+          개인정보 수집/이용동의<span>{errors.consent}</span>
+        </h3>
         <label className="select">
           <input
             type="radio"
@@ -127,7 +197,9 @@ const SignUp = () => {
         </label>
 
         <div className="btn_area">
-          <button type="submit" className="btn_type">가입하기</button>
+          <button type="submit" className="btn_type">
+            가입하기
+          </button>
         </div>
       </form>
     </div>
