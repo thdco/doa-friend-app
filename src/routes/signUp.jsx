@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
-import '../signUp.css';
+import '../signUp.css'; // CSS 파일을 import합니다.
+import { useNavigate } from 'react-router-dom';
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { setDoc, doc, Timestamp } from "firebase/firestore";
+import { auth, db } from '../firebase'; // ✅ firebase.js에서 export한 것
 
 const SignUp = () => {
   const [form, setForm] = useState({
@@ -62,20 +66,40 @@ const SignUp = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validate()) {
-      alert('회원가입이 완료되었습니다!');
-    }
-  };
+  const navigate = useNavigate();
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  if (!validate()) return;
+
+  try {
+    const fullEmail = `${form.email}@${form.emailDomain}`;
+    const userCredential = await createUserWithEmailAndPassword(auth, fullEmail, form.pw);
+    const user = userCredential.user;
+
+    // Firestore에 사용자 정보 저장
+    await setDoc(doc(db, "users", user.uid), {
+      id: form.id,
+      name: form.name,
+      phoneNum: form.phoneNum,
+      email: fullEmail,
+      createdAt: Timestamp.now(),
+    });
+
+    alert("회원가입이 완료되었습니다!");
+    navigate("/");
+
+  } catch (error) {
+    alert("회원가입 실패: " + error.message);
+  }
+};
 
   return (
     <div className="wrapper">
       <form onSubmit={handleSubmit}>
         <header>
           <h1>
-            <img src="/image/main.png" alt="도와친구 회원가입" />
-            <p>도와친구의 멤버가 되어주세요!!</p>
+            도와친구의 멤버가<br/> 되어주세요!!
           </h1>
         </header>
 

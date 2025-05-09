@@ -1,4 +1,4 @@
-import './home.css';
+import '../css/home.css';
 import puppy from '../PNG/puppy.PNG';
 import siren from '../PNG/siren.PNG';
 import lightSiren from '../PNG/light_siren.PNG';
@@ -19,6 +19,7 @@ function Home() {
       </div>
 
       <div className="container">
+        <a href="/request-help-form">
         <button
           className="big-button"
           onMouseEnter={() => setIsHover(true)}
@@ -31,22 +32,29 @@ function Home() {
           />
           <span className="btn-label">도움 요청</span>
         </button>
+        </a>
 
         <div className="right-side">
           <div className="top-row">
+            <a href="/profile">
             <button className="button-square">
               <img src={me} alt="내정보" className="icon-toggle" />
               <span className="btn-label">내 정보</span>
             </button>
+            </a>
+            <a href="/request-help-list">
             <button className="button-square">
               <img src={community} alt="커뮤니티" className="icon-toggle" />
               <span className="btn-label">커뮤니티</span>
             </button>
+            </a>
           </div>
+          <a href="/settings">
           <button className="button-square">
             <img src={set} alt="설정" className="icon-toggle" />
             <span className="btn-label">설정</span>
           </button>
+          </a>
         </div>
       </div>
 
@@ -63,18 +71,18 @@ function Home() {
         <h2>💬 도우미 후기</h2>
         <div className="reviews">
           <div className="review-card">
-            <h3>김도우미</h3>
+            <h3>구구도우미</h3>
             <p>
               정말 친절하고 도움이 많이 되었어요! 다음에도 꼭 다시 이용하고
               싶습니다.
             </p>
           </div>
           <div className="review-card">
-            <h3>박도우미</h3>
+            <h3>송송도우미</h3>
             <p>시간 약속을 잘 지키고 일도 꼼꼼하게 해주셔서 감사했어요.</p>
           </div>
           <div className="review-card">
-            <h3>이도우미</h3>
+            <h3>이이도우미</h3>
             <p>처음 이용해봤는데 만족도 최고! 다음에도 꼭 부탁드릴게요.</p>
           </div>
         </div>

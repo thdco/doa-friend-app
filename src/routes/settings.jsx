@@ -39,7 +39,7 @@ function Settings({ setIsLoggedIn }) {
       </div>
 
       <div className="setting-item">
-        <a href="/login">
+        <a href="/">
           <button className="logout-button">로그아웃</button>
         </a>
       </div>

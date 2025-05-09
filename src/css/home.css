@@ -90,7 +90,7 @@ body {
 }
 
 .big-button:hover .icon-toggle {
-  content: url('light_siren.PNG');
+  content: url('../PNG/light_siren.PNG');
 }
 
 .btn-label {
